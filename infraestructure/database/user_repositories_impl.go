@@ -27,3 +27,15 @@ func (r *UserRepositoryImpl) Save(user *entities.User) error {
 	log.Printf("ID guardado: %v", id )
     return nil
 }
+
+func (r *UserRepositoryImpl) Update(user *entities.User) error {
+   
+   query := "UPDATE users SET name = ?, email = ?, password= ?  WHERE id = ? "
+
+   _ , err := r.db.Exec(query, user.Name, user.Email, user.Password, user.ID )
+   if err != nil {
+	   return err
+   }   
+   
+   return nil
+}

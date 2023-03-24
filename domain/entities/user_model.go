@@ -14,3 +14,12 @@ func NewUser(name, email, password string) *User {
 		Password: password,
 	}
 }
+
+func NewUserID(name, email, password string, id int64) *User {
+	return &User{
+		Name:     name,
+		Email:    email,
+		Password: password,
+		ID:       id,
+	}
+}
