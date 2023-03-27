@@ -6,7 +6,7 @@ import (
 	"hexagonal02/domain/entities"
 	"hexagonal02/domain/usecases"
 	"hexagonal02/infraestructure/controllers/dto"
-	"hexagonal02/utils/logging"
+	"hexagonal02/infraestructure/helpers/logging"
 	"io"
 	"net/http"
 	"strconv"
