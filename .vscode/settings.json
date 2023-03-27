@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "hexagonal",
+            "database": "${workspaceFolder:hexagonal-02}/infraestructure/database/sqlite/hexagonal.db"
+        }
+    ]
+}

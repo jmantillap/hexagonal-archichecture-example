@@ -5,3 +5,5 @@ database:
     user: root
     password: root
     dbname: hexagonal
+  sqlite:
+    file: ./infraestructure/database/sqlite/hexagonal.sqlite

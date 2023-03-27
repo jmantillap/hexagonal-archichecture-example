@@ -11,7 +11,8 @@ import (
 
 func Start() {
 	// Conectar a la base de datos
-    db,err := database.NewMySQLDB()
+    //db,err := database.NewMySQLDB()
+	db,err := database.NewSQLite3()
 
 	if err != nil {
         log.Fatalf("Failed to connect to database: %v", err)
