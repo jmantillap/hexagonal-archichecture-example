@@ -3,6 +3,7 @@ package cmd
 import (
 	"hexagonal02/domain/usecases"
 	api "hexagonal02/infraestructure/controllers"
+	"hexagonal02/infraestructure/controllers/middleware"
 	database "hexagonal02/infraestructure/database"
 	"log"
 	"net/http"
@@ -30,16 +31,19 @@ func Start() {
 	// Inicializar el enrutador HTTP	
 	router := api.NewRouter(userHandler)
 	
+	apiKeyMiddleware := middleware.NewApiKeyAuthMiddleware(router)
+
 	srv := &http.Server{
-        Handler:      router,
+        Handler:      apiKeyMiddleware,
         Addr:         "127.0.0.1:8000",
         // Good practice: enforce timeouts for servers you create!
         WriteTimeout: 15 * time.Second,
         ReadTimeout:  15 * time.Second,
     }
 
-	// Iniciar el servidor HTTP
-	log.Println("Starting server on :8000")
+	// Iniciar el servidor HTTP	
+
+	log.Println("Starting server on :8000")	
 	err = srv.ListenAndServe()
 	if err != nil {
 		log.Fatalf("Failed to start server: %v", err)
